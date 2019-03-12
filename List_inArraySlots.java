@@ -61,20 +61,24 @@ public class List_inArraySlots {
                        ) {
       //temporarily placed "1" in place of variables to be added later
       if (type == 0){
-        intElements[1] = intValue;
+        intElements[filledElements] = intValue;
+				doubleElements[filledElements] = 0.0;
+				stringElements[filledElements] = "";
         typeOfElements[filledElements] = 0;
-        filledElements++;
       }
       if (type == 1){
-        doubleElements[1] = doubleValue;
+        doubleElements[filledElements] = doubleValue;
+				intElements[filledElements] = 0;
+				stringElements[filledElements] = "";
         typeOfElements[filledElements] = 1;
-        filledElements++;
       }
       if (type == 2){
-        stringElements[1] = stringValue;
+        stringElements[filledElements] = stringValue;
+				doubleElements[filledElements] = 0.0;
+				intElements[filledElements] = 0;
         typeOfElements[filledElements] = 2;
-        filledElements++;
       }
+			filledElements++;
       return true;
      }
 
