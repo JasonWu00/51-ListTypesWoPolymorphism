@@ -2,12 +2,12 @@
  Test list features.
  */
 public class UserOfList {
-    List_inArraySlots list;
-    
+    public static List_inArraySlots list;
+
     public static void main( String[] args ) {
         list = new List_inArraySlots();
 
-        // System.out.println( "number of elements: " + list.size() );
+        System.out.println( "number of elements: " + list.size() );
         // System.out.println( "empty list: " + list);
 
         // // Populate the list with diverse elements.
