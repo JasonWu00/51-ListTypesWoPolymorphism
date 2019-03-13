@@ -20,7 +20,12 @@ public class List_inArraySlots {
      */
     private int[] typeOfElements;
 
+    private Element currentElement;
+
     private static final int INITIAL_CAPACITY = 10;
+    private static final int INTEGER_TYPE = 0;
+    private static final int DOUBLE_TYPE = 1;
+    private static final int STRING_TYPE = 2;
 
     /**
       Construct an empty list with a small initial capacity.
@@ -29,7 +34,7 @@ public class List_inArraySlots {
       intElements = new int[INITIAL_CAPACITY];
       doubleElements = new double[INITIAL_CAPACITY];
       stringElements = new String[INITIAL_CAPACITY];
-      typeOfElements = new int[INITIAL_CAPACITY * 3];
+      typeOfElements = new int[INITIAL_CAPACITY];
     }
 
 
@@ -49,13 +54,13 @@ public class List_inArraySlots {
       String result = "[";
       int index;
       for( index = 0; index < filledElements; index++) {
-        if (typeOfElements[index] == 0) {
+        if (typeOfElements[index] == INTEGER_TYPE) {
           result += intElements[ index] + ",";
         }
-        if (typeOfElements[index] == 1) {
+        if (typeOfElements[index] == DOUBLE_TYPE) {
           result += doubleElements[ index] + ",";
         }
-        if (typeOfElements[index] == 2) {
+        if (typeOfElements[index] == STRING_TYPE) {
           result += stringElements[ index] + ",";
         }
       }
