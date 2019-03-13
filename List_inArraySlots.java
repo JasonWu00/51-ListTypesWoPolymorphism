@@ -45,6 +45,14 @@ public class List_inArraySlots {
       return filledElements;
     }
 
+    public String get(int index) {
+      currentElement.setValues(typeOfElements[index],
+                                intElements[index],
+                                doubleElements[index],
+                                stringElements[index]);
+      //asdf
+      return currentElement.toString();
+    }
 
      /**
        @return a string representation of this list,
