@@ -45,9 +45,22 @@ public class List_inArraySlots {
        @return a string representation of this list,
        in [a,b,c,] format
       */
-    // public String toString() {
-    // }
-    // Mr. Holmes says to leave this alone as of now.
+    public String toString() {
+      String result = "[";
+      int index;
+      for( index = 0; index < filledElements; index++) {
+        if (typeOfElements[index] == 0) {
+          result += intElements[ index] + ",";
+        }
+        if (typeOfElements[index] == 1) {
+          result += doubleElements[ index] + ",";
+        }
+        if (typeOfElements[index] == 2) {
+          result += stringElements[ index] + ",";
+        }
+      }
+    return result + "]";
+  }
 
     /**
       Appends @value to the end of this list.
@@ -59,26 +72,14 @@ public class List_inArraySlots {
                        , double doubleValue
                        , String stringValue
                        ) {
-      //temporarily placed "1" in place of variables to be added later
-      if (type == 0){
-        intElements[filledElements] = intValue;
-				doubleElements[filledElements] = 0.0;
-				stringElements[filledElements] = "";
-        typeOfElements[filledElements] = 0;
-      }
-      if (type == 1){
-        doubleElements[filledElements] = doubleValue;
-				intElements[filledElements] = 0;
-				stringElements[filledElements] = "";
-        typeOfElements[filledElements] = 1;
-      }
-      if (type == 2){
-        stringElements[filledElements] = stringValue;
-				doubleElements[filledElements] = 0.0;
-				intElements[filledElements] = 0;
-        typeOfElements[filledElements] = 2;
-      }
-			filledElements++;
+      //Fills in appropriate array with value
+      //fills in other arrays with useless values to be ignored
+      if (filledElements == typeOfElements.length) expand();
+      intElements[filledElements] = intValue;
+			doubleElements[filledElements] = doubleValue;
+			stringElements[filledElements] = stringValue;
+      typeOfElements[filledElements] = type;
+      filledElements++;
       return true;
      }
 
@@ -89,6 +90,28 @@ public class List_inArraySlots {
      */
      private void expand() {
         System.out.println( "expand... (for debugging)");
+
+        //expanding the intElements array
+        int[] biggerInt = new int[ filledElements * 2];
+        for( int elemIndex = 0; elemIndex < filledElements; elemIndex++)
+            biggerInt[ elemIndex] = intElements[ elemIndex];
+        intElements = biggerInt;
+
+        //repeat for stringElements, doubleElements, and typeOfElements
+        String[] biggerString = new String[ filledElements * 2];
+        for( int elemIndex = 0; elemIndex < filledElements; elemIndex++)
+            biggerString[ elemIndex] = stringElements[ elemIndex];
+        stringElements = biggerString;
+
+        double[] biggerDouble = new double[ filledElements * 2];
+        for( int elemIndex = 0; elemIndex < filledElements; elemIndex++)
+            biggerDouble[ elemIndex] = doubleElements[ elemIndex];
+        doubleElements = biggerDouble;
+
+        int[] biggerType = new int[ filledElements * 2];
+        for( int elemIndex = 0; elemIndex < filledElements; elemIndex++)
+            biggerType[ elemIndex] = typeOfElements[ elemIndex];
+        typeOfElements = biggerType;
            // /* S.O.P. rules for debugging:
               // Working methods should be silent. But during
               // development, the programmer must verify that
