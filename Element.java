@@ -1,7 +1,7 @@
 public class Element {
-  private int integerValue = 2;
-  private double doubleValue = 2.0;
-  private String stringValue = "two";
+  private int integerValue;
+  private double doubleValue;
+  private String stringValue;
   private int typeValue;
 
   public String toString() {
