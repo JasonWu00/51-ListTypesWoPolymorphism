@@ -34,5 +34,13 @@ public class UserOfList {
         System.out.println("result of expanded list: "
              + list.size() + " elements:");
         System.out.println( list + System.lineSeparator());
+
+        String output = "";
+        for(int index = 0; index < list.size(); index++) {
+          output += "[Index " + index + ": " + list.get(index) + "]"
+                  + System.lineSeparator();
+          //asdf
+        }
+        System.out.println(output);
     }
 }

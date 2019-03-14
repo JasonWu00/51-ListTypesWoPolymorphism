@@ -20,7 +20,7 @@ public class List_inArraySlots {
      */
     private int[] typeOfElements;
 
-    private Element currentElement;
+    private Element currentElement = new Element();
 
     private static final int INITIAL_CAPACITY = 10;
     private static final int INTEGER_TYPE = 0;
